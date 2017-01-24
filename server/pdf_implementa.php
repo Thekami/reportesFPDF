@@ -1,4 +1,6 @@
 <?php
+echo phpinfo();
+
 require('pdf_estruc_gen.php');
 //require('sesion_Class.php');
 require('mysql.php');
@@ -12,7 +14,7 @@ function LoadData()
     $filtro = $_GET['x'];
 
     $consulta = "SELECT CONCAT(primer_ap,' ',segundo_ap,' ',nombres) nombre, 
-                 direccion, telefono, IF(status = 1, 'Activo', 'Inactivo') 
+                 direccion, telefono, IF(status = 1, 'Activo', 'Inactivo') status
                  FROM personas WHERE status = $filtro"; 
     $arrayNombres = $sql->query_assoc($consulta);   
     
